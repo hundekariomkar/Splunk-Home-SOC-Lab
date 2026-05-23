@@ -9,16 +9,14 @@ A personal cybersecurity home lab for practicing SOC analyst skills using **Splu
 ```
 Home Network (192.168.19.x)
         |
-Host Machine — Splunk Enterprise (192.168.56.X)
-        |
-   VirtualBox NAT Network (192.168.9.0/24)
-   ┌─────────────────────────────┐
-   │                             │
-Kali Linux (192.168.9.X)  ←→  Windows 10 (192.168.9.X) 
-   Attacker                      Target / Victim
-                                        &
-                              Windows 10 (192.168.56.X)
-                                 Host-Only Adapter
+Host Machine — Splunk Enterprise (192.168.56.X) ┌─────────────────────────────┐
+        |                                                                     |
+   VirtualBox NAT Network (192.168.9.0/24)                                    |
+   ┌─────────────────────────────┐                                            |
+   │                             │                                            |
+Kali Linux (192.168.9.X)  ←→  Windows 10 (192.168.9.X)       &      Windows 10 (192.168.56.X)
+   Attacker                      Target / Victim                       Host-Only Adapter for outputs
+                                 
 ```
 
 ---
