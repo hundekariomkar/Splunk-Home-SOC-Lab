@@ -9,13 +9,16 @@ A personal cybersecurity home lab for practicing SOC analyst skills using **Splu
 ```
 Home Network (192.168.19.x)
         |
-Host Machine — Splunk Enterprise (192.168.19.100)
+Host Machine — Splunk Enterprise (192.168.56.X)
         |
    VirtualBox NAT Network (192.168.9.0/24)
    ┌─────────────────────────────┐
    │                             │
-Kali Linux (192.168.9.1)  ←→  Windows 10 (192.168.9.2)
+Kali Linux (192.168.9.X)  ←→  Windows 10 (192.168.9.X) 
    Attacker                      Target / Victim
+                                        &
+                              Windows 10 (192.168.56.X)
+                                 Host-Only Adapter
 ```
 
 ---
@@ -24,9 +27,10 @@ Kali Linux (192.168.9.1)  ←→  Windows 10 (192.168.9.2)
 
 | Component | Role | IP |
 |---|---|---|
-| Host Machine (Windows) | Splunk Enterprise SIEM | 192.168.19.100 |
-| Windows 10 VM | Target / Victim + Log Forwarder | 192.168.9.2 |
-| Kali Linux VM | Attacker Machine | 192.168.9.1 |
+| Host Machine (Windows) | Splunk Enterprise SIEM | 192.168.56.X |
+| Windows 10 VM | Target / Victim + Log Forwarder | 192.168.9.X |
+| Windows 10 VM | Target / Victim + Log Forwarder outputs | 192.168.56.X |
+| Kali Linux VM | Attacker Machine | 192.168.9.X |
 
 ---
 
@@ -76,7 +80,7 @@ netsh advfirewall firewall add rule name="Splunk9997" dir=in action=allow protoc
 ### Step 2 — VirtualBox Network Setup
 1. Create NAT Network in VirtualBox:
    - File → Tools → Network Manager → NAT Networks → Create
-   - Name: `LabNetwork`, IPv4: `10.0.2.0/24`
+   - Name: `LabNetwork`, IPv4: `192.168.x.x/24`
 2. Set both VMs to use `NAT Network → LabNetwork`
 
 ---
@@ -222,6 +226,18 @@ index=main sourcetype="WinEventLog:Microsoft-Windows-Sysmon/Operational"
 - [Olaf Hartong Sysmon Config](https://github.com/olafhartong/sysmon-modular)
 - [MyDFIR YouTube Channel](https://www.youtube.com/@MyDFIR)
 - [TryHackMe Splunk Rooms](https://tryhackme.com)
+
+---
+
+👨‍💻 Author
+
+** Omkar Ashok Hundekari **
+
+Aspiring SOC Analyst with hands-on experience in SIEM implementation, log analysis, and threat detection. Skilled in Splunk Enterprise, Windows Event Log monitoring, Sysmon configuration, and attack detection using real-world lab environments.
+
+📧 Email: hundekari.omkar55@gmail.com
+
+💻 LinkedIn: https://www.linkedin.com/in/omkarhundekari/
 
 ---
 
