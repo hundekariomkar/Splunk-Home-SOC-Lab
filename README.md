@@ -15,7 +15,8 @@ Host Machine — Splunk Enterprise (192.168.56.X) ┌─────────
    ┌─────────────────────────────┐                                            |
    │                             │                                            |
 Kali Linux (192.168.9.X)  ←→  Windows 10 (192.168.9.X)       &      Windows 10 (192.168.56.X)
-   Attacker                      Target / Victim                       Host-Only Adapter for outputs
+   Attacker                      Target / Victim                        Host-Only Adapter
+                                                                          for outputs
                                  
 ```
 
